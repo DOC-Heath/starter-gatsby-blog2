@@ -4,8 +4,8 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: "Gatsby Contentful Starter",
-    description: "Official Contentful Gatsby Starter",
+    title: "First Christian Church of Granbury",
+    description: "First Christian Church of Granbury, Texas",
   },
   plugins: [
     "gatsby-transformer-sharp",
