@@ -7,7 +7,7 @@ const Navigation = () => (
   <nav role="navigation" className={styles.container} aria-label="Main">
     <Link to="/" className={styles.logoLink}>
       <span className={styles.logo} />
-      <span className={styles.logoNameAddress} style={display:flex, flex-direction:column}">
+      <span className={styles.logoNameAddress}">
         <span className={styles.navigationItem+' '+styles.logoName}>First Christian Church</span>
         <span className={styles.navigationItem+' '+styles.logoAddress}>Granbury, Texas</span>
       </span>
