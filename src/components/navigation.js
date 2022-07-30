@@ -8,6 +8,7 @@ const Navigation = () => (
     <Link to="/" className={styles.logoLink}>
       <span className={styles.logo} />
       <span className={styles.navigationItem}>First Christian Church</span>
+      <span className={styles.navigationItem}>Granbury, Texas</span>
     </Link>
     <ul className={styles.navigation}>
       <li className={styles.navigationItem}>
