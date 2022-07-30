@@ -68,7 +68,7 @@
 
   /* size */
   --size-gutter: var(--space-2xl);
-  --size-logo: var(--space-2xl);
+  --size-logo: var(--space-3xl);
   --size-max-width: 80rem;
 }
 
