@@ -7,8 +7,10 @@ const Navigation = () => (
   <nav role="navigation" className={styles.container} aria-label="Main">
     <Link to="/" className={styles.logoLink}>
       <span className={styles.logo} />
-      <span className={styles.navigationItem}>First Christian Church</span>
-      <span className={styles.navigationItem}>Granbury, Texas</span>
+      <span style="display: flex; flex-direction: column;">
+        <span className={styles.navigationItem} style="font-size: larger; font-weight: bolder">First Christian Church</span>
+        <span className={styles.navigationItem} style="justify-content: flex-end; text-size:smaller">Granbury, Texas</span>
+      </span>
     </Link>
     <ul className={styles.navigation}>
       <li className={styles.navigationItem}>
