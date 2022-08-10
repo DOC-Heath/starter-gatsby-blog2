@@ -55,7 +55,7 @@ export const pageQuery = graphql`
         description {
           raw
         }
-        heroImage: image {
+        heroImage: heroImage {
           gatsbyImageData(
             layout: CONSTRAINED
             placeholder: BLURRED
