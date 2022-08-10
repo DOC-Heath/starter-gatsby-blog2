@@ -49,7 +49,7 @@
 
 @media (min-width: 768px) {
   .hero {
-    padding-top: var(--size-gutter);
+    /* padding-top: var(--size-gutter); */
   }
 
   .details {
