@@ -9,7 +9,7 @@ import ArticlePreview from '../components/article-preview'
 class RootIndex extends React.Component {
   render() {
     const posts = get(this, 'props.data.allContentfulBlogPost.nodes')
-    const [author] = get(this, 'props.data.allContentfulPerson.nodes')
+    const [author] = get(this, 'props.data.allContentfulNews.nodes')
 
     return (
       <Layout location={this.props.location}>
@@ -47,7 +47,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allContentfulPerson(
+    allContentfulNews(
       filter: { contentful_id: { eq: "3N5k9qIhsAOMZNoHWuNSG9" } }
     ) {
       nodes {
