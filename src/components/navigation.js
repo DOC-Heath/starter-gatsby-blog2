@@ -20,7 +20,7 @@ const Navigation = () => (
       </li>
       <li className={styles.navigationItem}>
         <Link to="/blog/" activeClassName="active">
-          Blog
+          News
         </Link>
       </li>
     </ul>
