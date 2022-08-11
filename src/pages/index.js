@@ -48,7 +48,7 @@ export const pageQuery = graphql`
       }
     }
     allContentfulNews(
-      filter: { contentful_id: { eq: "3N5k9qIhsAOMZNoHWuNSG9" } }
+      sort: { fields: [publishDate], order: DESC }
     ) {
       nodes {
         title
