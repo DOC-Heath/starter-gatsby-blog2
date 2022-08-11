@@ -55,7 +55,8 @@
 
   .details {
     max-width: 44rem;
-    padding: var(--space-3xl) var(--size-gutter) 0;
+    / *padding: var(--space-3xl) var(--size-gutter) 0; */
+    padding: 0;
   }
 }
 
