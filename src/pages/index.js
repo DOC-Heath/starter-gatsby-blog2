@@ -48,7 +48,7 @@ export const pageQuery = graphql`
       }
     }
     allContentfulNews(
-      sort: { fields: [publishDate], order: DESC }
+      sort: { fields: [publishDate], order: ASC }
     ) {
       nodes {
         title
