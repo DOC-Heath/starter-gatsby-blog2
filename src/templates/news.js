@@ -11,7 +11,7 @@ import Hero from '../components/hero'
 import Tags from '../components/tags'
 import * as styles from './blog-post.module.css'
 
-/* just to truigger build */
+/* just to truigger builds */
 
 class NewsTemplate extends React.Component {
   render() {
