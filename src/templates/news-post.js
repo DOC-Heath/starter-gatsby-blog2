@@ -13,7 +13,7 @@ import * as styles from './blog-post.module.css'
 
 /* just to truigger builds */
 
-class NewsTemplate extends React.Component {
+class NewsPostTemplate extends React.Component {
   render() {
     const post = get(this.props, 'data.contentfulNews')
     const previous = get(this.props, 'data.previous')
@@ -74,10 +74,10 @@ class NewsTemplate extends React.Component {
   }
 }
 
-export default NewsTemplate
+export default NewsPostTemplate
 
 export const pageQuery = graphql`
-  query NewsBySlug(
+  query NewsPostBySlug(
     $slug: String!
     $previousPostSlug: String
     $nextPostSlug: String
