@@ -50,14 +50,14 @@ class BlogPostTemplate extends React.Component {
                 <ul className={styles.articleNavigation}>
                   {previous && (
                     <li>
-                      <Link to={`/blog/${previous.slug}`} rel="prev">
+                      <Link to={`${previous.path}${previous.slug}`} rel="prev">
                         ← {previous.title}
                       </Link>
                     </li>
                   )}
                   {next && (
                     <li>
-                      <Link to={`/blog/${next.slug}`} rel="next">
+                      <Link to={`${next.path}${next.slug}`} rel="next">
                         {next.title} →
                       </Link>
                     </li>
@@ -81,6 +81,7 @@ export const pageQuery = graphql`
     $nextPostSlug: String
   ) {
     contentfulBlogPost(slug: { eq: $slug }) {
+      path
       slug
       title
       author {
@@ -103,10 +104,12 @@ export const pageQuery = graphql`
       }
     }
     previous: contentfulBlogPost(slug: { eq: $previousPostSlug }) {
+      path
       slug
       title
     }
     next: contentfulBlogPost(slug: { eq: $nextPostSlug }) {
+      path
       slug
       title
     }

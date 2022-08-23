@@ -6,6 +6,8 @@ import Layout from '../components/layout'
 import Hero from '../components/hero'
 import ArticlePreview from '../components/article-preview'
 
+// trigger build
+
 class RootIndex extends React.Component {
   render() {
     const posts = get(this, 'props.data.allContentfulNews.nodes')
@@ -30,6 +32,7 @@ export const pageQuery = graphql`
   query HomeQuery {
     allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
       nodes {
+        path
         title
         slug
         publishDate(formatString: "MMMM Do, YYYY")
@@ -49,6 +52,7 @@ export const pageQuery = graphql`
     }
     allContentfulNews( sort: { fields: [publishDate], order: ASC }) {
       nodes {
+        path
         title
         slug
         publishDate(formatString: "MMMM Do, YYYY")

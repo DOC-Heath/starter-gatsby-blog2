@@ -27,6 +27,7 @@ export const pageQuery = graphql`
   query BlogIndexQuery {
     allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
       nodes {
+        path
         title
         slug
         publishDate(formatString: "MMMM Do, YYYY")
