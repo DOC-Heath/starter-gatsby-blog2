@@ -12,12 +12,14 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       {
         allContentfulBlogPost {
           nodes {
+            path
             title
             slug
           }
         }
         allContentfulNews {
           nodes {
+            path
             title
             slug
           }
@@ -48,7 +50,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         index === posts.length - 1 ? null : posts[index + 1].slug
 
       createPage({
-        path: `/blog/${post.slug}/`,
+        path: `${post.path}${post.slug}/`,
         component: blogPost,
         context: {
           slug: post.slug,
@@ -66,7 +68,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         index === news.length - 1 ? null : news[index + 1].slug
 
       createPage({
-        path: `/news/${newspost.slug}/`,
+        path: `${newspost.path}${newspost.slug}/`,
         component: newsPost,
         context: {
           slug: newspost.slug,
