@@ -47,20 +47,22 @@ export const pageQuery = graphql`
         }
       }
     }
-    allContentfulNews(
-      sort: { fields: [publishDate], order: ASC }
-    ) {
+    allContentfulNews( sort: { fields: [publishDate], order: ASC }) {
       nodes {
         title
+        slug
+        publishDate(formatString: "MMMM Do, YYYY")
+        tags
+        heroImage {
+          gatsbyImageData(
+            layout: FULL_WIDTH
+            placeholder: BLURRED
+            width: 424
+            height: 212
+          )
+        }
         description {
           raw
-        }
-        heroImage: heroImage {
-          gatsbyImageData(
-            layout: CONSTRAINED
-            placeholder: BLURRED
-            width: 1180
-          )
         }
       }
     }
