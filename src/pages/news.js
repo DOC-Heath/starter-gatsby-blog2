@@ -27,6 +27,7 @@ export const pageQuery = graphql`
   query NewsIndexQuery {
     allContentfulNews(sort: { fields: [publishDate], order: DESC }) {
       nodes {
+        path
         title
         slug
         publishDate(formatString: "MMMM Do, YYYY")
