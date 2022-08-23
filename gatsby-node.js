@@ -60,16 +60,16 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
   
   if (news.length > 0) {
-    news.forEach((news, index) => {
+    news.forEach((newspost, index) => {
       const previousPostSlug = index === 0 ? null : news[index - 1].slug
       const nextPostSlug =
         index === news.length - 1 ? null : news[index + 1].slug
 
       createPage({
-        path: `/news/${news.slug}/`,
+        path: `/news/${newspost.slug}/`,
         component: newsPost,
         context: {
-          slug: news.slug,
+          slug: newspost.slug,
           previousPostSlug,
           nextPostSlug,
         },
