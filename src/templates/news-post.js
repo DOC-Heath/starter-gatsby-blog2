@@ -52,14 +52,14 @@ class NewsPostTemplate extends React.Component {
                 <ul className={styles.articleNavigation}>
                   {previous && (
                     <li>
-                      <Link to={`/news/${previous.slug}`} rel="prev">
+                      <Link to={`${previous.path}${previous.slug}`} rel="prev">
                         ← {previous.title}
                       </Link>
                     </li>
                   )}
                   {next && (
                     <li>
-                      <Link to={`/news/${next.slug}`} rel="next">
+                      <Link to={`${next.path}${next.slug}`} rel="next">
                         {next.title} →
                       </Link>
                     </li>
@@ -83,6 +83,7 @@ export const pageQuery = graphql`
     $nextPostSlug: String
   ) {
     contentfulNews(slug: { eq: $slug }) {
+      path
       slug
       title
       author {
@@ -105,10 +106,12 @@ export const pageQuery = graphql`
       }
     }
     previous: contentfulNews(slug: { eq: $previousPostSlug }) {
+      path
       slug
       title
     }
     next: contentfulNews(slug: { eq: $nextPostSlug }) {
+      path
       slug
       title
     }
