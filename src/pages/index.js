@@ -30,7 +30,7 @@ export const pageQuery = graphql`
   query HomeQuery {
     allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
       nodes {
-        type
+        type {"blog"}
         title
         slug
         publishDate(formatString: "MMMM Do, YYYY")
@@ -50,7 +50,7 @@ export const pageQuery = graphql`
     }
     allContentfulNews( sort: { fields: [publishDate], order: ASC }) {
       nodes {
-        type
+        type {"news"}
         title
         slug
         publishDate(formatString: "MMMM Do, YYYY")
