@@ -26,6 +26,7 @@
   /* padding: var(--space-2xl) var(--size-gutter) 0; */
   padding: 1em;
   margin-bottom: 2em;
+  border-radius: 1em;
   position: absolute;
 }
 
