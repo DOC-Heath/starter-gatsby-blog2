@@ -18,6 +18,10 @@
   width: 100%;
 }
 
+p:last-of-type {
+  margin-bottom: 0; 
+}
+
 .details {
   background: var(--background-over);
   left: 0;
