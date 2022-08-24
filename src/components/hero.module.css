@@ -18,13 +18,19 @@
   width: 100%;
 }
 
+p:last-of-type {
+  margin-bottom: 0; 
+}
+
 .details {
-  background: var(--background);
+  background: var(--background-over);
   left: 0;
   max-width: 40rem;
   /* width: 85%; */
   /* padding: var(--space-2xl) var(--size-gutter) 0; */
-  padding: 0 var(--size-gutter) 0 0;
+  padding: 1em;
+  margin-bottom: 2em;
+  border-radius: 1em;
   position: absolute;
 }
 
@@ -62,7 +68,7 @@
 @media (min-width: 1024px) {
   .image {
     margin-left: auto;
-    width: 85%;
+    /* width: 85%; */
   }
 
   .details {

@@ -10,6 +10,7 @@
 
   /* palette */
   --white: #fff;
+  --white-half-opaque: rgb(255, 255, 255, 0.5);
   --black: #000;
   --black-fade-5: rgba(0, 0, 0, 0.05);
 
@@ -54,6 +55,7 @@
   /* colors */
   --primary: #4a90e2;
   --background: var(--white);
+  --background-over: var(--white-half-opaque);
   --border: var(--black-fade-5);
 
   /* text */
