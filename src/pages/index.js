@@ -68,7 +68,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allContentfulAsset( sort: { fields: [publishDate], order: ASC }) {
+    allContentfulAsset {
       nodes {
         path
         title
@@ -83,9 +83,7 @@ export const pageQuery = graphql`
             height: 212
           )
         }
-        description {
-          raw
-        }
+        description
       }
     }
   }
