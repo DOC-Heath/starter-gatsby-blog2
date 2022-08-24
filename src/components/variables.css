@@ -10,7 +10,7 @@
 
   /* palette */
   --white: #fff;
-  --white-half-opaque: rgb(255, 255, 255, 0.5)
+  --white-half-opaque: rgb(255, 255, 255, 0.5);
   --black: #000;
   --black-fade-5: rgba(0, 0, 0, 0.05);
 
