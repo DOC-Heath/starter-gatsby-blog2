@@ -10,8 +10,8 @@ import ArticlePreview from '../components/article-preview'
 
 class RootIndex extends React.Component {
   render() {
-    const posts = get(this, 'props.data.allContentfulPost.nodes')
-    const billboard = get(this, 'props.data.ContentfulPost.nodes')
+    const posts = get(this, 'props.data.posts.nodes')
+    const [billboard] = get(this, 'props.data.welcome.nodes')
     
     return (
       <Layout location={this.props.location}>
@@ -30,7 +30,7 @@ export default RootIndex
 
 export const pageQuery = graphql`
   query HomeQuery {
-    allContentfulPost( sort: { fields: [publishDate], order: ASC }) {
+    posts: allContentfulPost( sort: { fields: [publishDate], order: ASC }) {
       nodes {
         path
         title
@@ -49,7 +49,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    ContentfulPost(slug: { eq: "welcome" }) {
+    welcome: allContentfulPost( filter: { slug: { eq: "welcome" } } ) {
       nodes {
         title
         description {
