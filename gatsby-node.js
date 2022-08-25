@@ -9,7 +9,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const result = await graphql(
     `
       {
-        allContentfulPost {
+        posts: allContentfulBlogPost {
           nodes {
             path
             title
@@ -27,7 +27,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     return
   }
 
-  const posts = result.data.allContentfulPost.nodes
+  const posts = result.data.posts.nodes
 
   // Create blog posts pages
   // But only if there's at least one blog post found in Contentful
