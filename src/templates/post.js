@@ -11,11 +11,9 @@ import Hero from '../components/hero'
 import Tags from '../components/tags'
 import * as styles from './blog-post.module.css'
 
-/* just to truigger builds */
-
-class NewsPostTemplate extends React.Component {
+class PostTemplate extends React.Component {
   render() {
-    const post = get(this.props, 'data.contentfulNews')
+    const post = get(this.props, 'data.contentfulPost')
     const previous = get(this.props, 'data.previous')
     const next = get(this.props, 'data.next')
     const plainTextDescription = documentToPlainTextString(
@@ -74,15 +72,15 @@ class NewsPostTemplate extends React.Component {
   }
 }
 
-export default NewsPostTemplate
+export default PostTemplate
 
 export const pageQuery = graphql`
-  query NewsPostBySlug(
+  query PostBySlug(
     $slug: String!
     $previousPostSlug: String
     $nextPostSlug: String
   ) {
-    contentfulNews(slug: { eq: $slug }) {
+    contentfulPost(slug: { eq: $slug }) {
       path
       slug
       title
@@ -105,12 +103,12 @@ export const pageQuery = graphql`
         raw
       }
     }
-    previous: contentfulNews(slug: { eq: $previousPostSlug }) {
+    previous: contentfulPost(slug: { eq: $previousPostSlug }) {
       path
       slug
       title
     }
-    next: contentfulNews(slug: { eq: $nextPostSlug }) {
+    next: contentfulPost(slug: { eq: $nextPostSlug }) {
       path
       slug
       title

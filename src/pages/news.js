@@ -9,7 +9,7 @@ import ArticlePreview from '../components/article-preview'
 
 class NewsIndex extends React.Component {
   render() {
-    const posts = get(this, 'props.data.allContentfulNews.nodes')
+    const posts = get(this, 'props.data.posts.nodes')
 
     return (
       <Layout location={this.props.location}>
@@ -25,7 +25,7 @@ export default NewsIndex
 
 export const pageQuery = graphql`
   query NewsIndexQuery {
-    allContentfulNews(sort: { fields: [publishDate], order: DESC }) {
+    posts: allContentfulPost(sort: { fields: [publishDate], order: DESC }) {
       nodes {
         path
         title
