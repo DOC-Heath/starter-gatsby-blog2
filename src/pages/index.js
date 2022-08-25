@@ -26,6 +26,8 @@ class RootIndex extends React.Component {
 
 export default RootIndex
 
+//build please
+
 export const pageQuery = graphql`
   query HomeQuery {
     posts: allContentfulPost( 
