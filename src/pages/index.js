@@ -28,7 +28,14 @@ export default RootIndex
 
 export const pageQuery = graphql`
   query HomeQuery {
-    posts: allContentfulPost( sort: { fields: [publishDate], order: ASC }) {
+    posts: allContentfulPost( 
+      sort: { fields: [publishDate], order: ASC }
+      filter: {
+        metadata: {
+          tags: { elemMatch: { contentful_id: { neq: "dev" } } }
+        }
+      }    
+    ) {
       nodes {
         path
         title
