@@ -27,7 +27,6 @@ export const pageQuery = graphql`
   query BlogIndexQuery {
     posts: allContentfulPost(
       sort: { fields: [publishDate], order: DESC }
-      filter: { metadata: { tags: { elemMatch: { contentful_id: { eq: "indexBlog" } } } } }
     ) {
       nodes {
         path
