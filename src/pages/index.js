@@ -32,7 +32,7 @@ export const pageQuery = graphql`
       sort: { fields: [publishDate], order: ASC }
       filter: {
         metadata: {
-          tags: { elemMatch: { contentful_id: { neq: "dev" } } }
+          tags: { elemMatch: { contentful_id: { ne: "dev" } } }
         }
       }    
     ) {
