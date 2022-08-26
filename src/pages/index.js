@@ -30,7 +30,7 @@ export const pageQuery = graphql`
   query HomeQuery {
     posts: allContentfulPost( 
       sort: { fields: [publishDate], order: ASC }
-      filter: { metadata: { tags: { elemMatch: { contentful_id: { eq: "indexHome" } } } } }
+      filter: { metadata: { tags: { in: ["index-home"] } } }
     ) {
       nodes {
         path
