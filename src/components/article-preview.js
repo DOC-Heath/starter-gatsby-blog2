@@ -26,7 +26,7 @@ const ArticlePreview = ({ posts }) => {
               </div>
               <div className={styles.meta}>
                 <small className="meta">{post.publishDate}</small>
-                <Tags tags={post.tags} />
+                <Tags tags={post.metadata.tags} />
               </div>
             </li>
           )
