@@ -7,7 +7,7 @@ const Tags = ({ tags }) =>
     <small className={styles.tags}>
       {tags.map((tag) => (
         <div key={tag} className={styles.tag}>
-          {tag}
+          {tag.name}
         </div>
       ))}
     </small>
