@@ -44,7 +44,7 @@ class PostTemplate extends React.Component {
             <div className={styles.body}>
               {post.body?.raw && renderRichText(post.body)}
             </div>
-            <Tags tags={post.metadata.tags.name} />
+            <Tags tags={post.metadata.tags} />
             {(previous || next) && (
               <nav>
                 <ul className={styles.articleNavigation}>
