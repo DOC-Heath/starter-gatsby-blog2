@@ -98,7 +98,7 @@ export const pageQuery = graphql`
       body {
         raw
       }
-      tags
+      tags: metadata { tags { name } }
       description {
         raw
       }
