@@ -27,6 +27,7 @@ export const pageQuery = graphql`
   query NewsIndexQuery {
     posts: allContentfulPost(
       sort: { fields: [publishDate], order: DESC }
+      filter: { index: { eq: "news" } }
     ) {
       nodes {
         path
