@@ -1,10 +1,12 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
+import { renderRichText } from 'gatsby-source-contentful/rich-text'
 
 import Layout from '../components/layout'
 import Hero from '../components/hero'
 import ArticlePreview from '../components/article-preview'
+import * as styles from '../templates/blog-post.module.css'
 
 class RootIndex extends React.Component {
   render() {
@@ -18,8 +20,10 @@ class RootIndex extends React.Component {
           title={billboard.title}
           content={billboard.description}
         />
-        <div className={styles.body}>
-          {post.body?.raw && renderRichText(post.body)}
+        <div className={styles.article}>
+          <div className={styles.body}>
+            {billboard.body?.raw && renderRichText(billboard.body)}
+          </div>
         </div>
         <ArticlePreview posts={posts} />
       </Layout>
