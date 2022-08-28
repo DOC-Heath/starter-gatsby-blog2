@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
+import { renderRichText } from 'gatsby-source-contentful/rich-text'
 
 import Layout from '../components/layout'
 import Hero from '../components/hero'
