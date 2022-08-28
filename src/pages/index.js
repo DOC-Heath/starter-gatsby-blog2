@@ -5,6 +5,7 @@ import get from 'lodash/get'
 import Layout from '../components/layout'
 import Hero from '../components/hero'
 import ArticlePreview from '../components/article-preview'
+import * as styles from './blog-post.module.css'
 
 class RootIndex extends React.Component {
   render() {
