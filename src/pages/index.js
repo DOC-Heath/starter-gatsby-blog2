@@ -18,6 +18,9 @@ class RootIndex extends React.Component {
           title={billboard.title}
           content={billboard.description}
         />
+        <div className={styles.body}>
+          {post.body?.raw && renderRichText(post.body)}
+        </div>
         <ArticlePreview posts={posts} />
       </Layout>
     )
@@ -54,8 +57,11 @@ export const pageQuery = graphql`
     welcome: allContentfulPost( filter: { slug: { eq: "welcome" } } ) {
       nodes {
         title
-        description {
-          raw
+        description { 
+          raw 
+        }
+        body { 
+          raw 
         }
         heroImage {
           gatsbyImageData(
