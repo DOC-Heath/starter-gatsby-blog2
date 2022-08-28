@@ -20,7 +20,7 @@ class RootIndex extends React.Component {
           content={billboard.description}
         />
         <div className={styles.body}>
-          {post.body?.raw && renderRichText(post.body)}
+          {billboard.body?.raw && renderRichText(billboard.body)}
         </div>
         <ArticlePreview posts={posts} />
       </Layout>
