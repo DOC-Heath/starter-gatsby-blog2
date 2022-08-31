@@ -90,7 +90,9 @@
     width: calc(85% - var(--size-gutter));
   }
 
+/*
   .article ul {
     padding-left: 0;
   }
+*/
 }
