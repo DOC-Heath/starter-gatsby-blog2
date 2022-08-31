@@ -28,6 +28,11 @@ const Navigation = () => (
           Blog
         </Link>
       </li>
+      <li className={styles.navigationItem}>
+        <Link to="https://fccgranbury.breezechms.com/give/online" activeClassName="active">
+          Give
+        </Link>
+      </li>
     </ul>
   </nav>
 )
