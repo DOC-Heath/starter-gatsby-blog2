@@ -14,12 +14,11 @@ const ArticlePreview = ({ posts }) => {
   return (
     <Container>
       <ul className={styles.articleList}>
-        {posts.map((post) => {
-          const hero = <GatsbyImage alt="" image=post.heroImage.gatsbyImageData/>
+        {posts.map((post) => 
           return (
             <li key={post.slug}>
               <Link to={`${post.path}${post.slug}`} className={styles.link}>
-                {hero}
+                <GatsbyImage alt="" image={post.heroImage.gatsbyImageData} />
                 <h2 className={styles.title}>{post.title}</h2>
               </Link>
               <div>
