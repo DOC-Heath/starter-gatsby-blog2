@@ -8,6 +8,7 @@ import Hero from '../components/hero'
 import ArticlePreview from '../components/article-preview'
 import * as styles from '../templates/blog-post.module.css'
 
+
 class RootIndex extends React.Component {
   render() {
     const posts = get(this, 'props.data.posts.nodes')
