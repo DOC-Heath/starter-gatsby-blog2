@@ -10,6 +10,8 @@ import * as styles from './article-preview.module.css'
 const ArticlePreview = ({ posts }) => {
   if (!posts) return null
   if (!Array.isArray(posts)) return null
+  
+  const linkToUrl = post.videoUrl ? post.videoUrl : `${post.path}${post.slug}` // if there is a video URL, link to that, else, /path/slug
 
   return (
     <Container>
@@ -17,7 +19,7 @@ const ArticlePreview = ({ posts }) => {
         {posts.map((post) => {
           return (
             <li key={post.slug}>
-              <Link to={`${post.path}${post.slug}`} className={styles.link}>
+              <Link to={linkToUrl} className={styles.link}>
                 <GatsbyImage alt="" image={post.heroImage.gatsbyImageData} />
                 <h2 className={styles.title}>{post.title}</h2>
               </Link>
