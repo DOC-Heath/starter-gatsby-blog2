@@ -43,6 +43,8 @@ export const pageQuery = graphql`
         path
         title
         slug
+        videoUrl
+        startTime
         publishDate(formatString: "MMMM Do, YYYY")
         metadata { tags { name, id } }
         heroImage {
