@@ -10,13 +10,12 @@ import * as styles from './article-preview.module.css'
 const ArticlePreview = ({ posts }) => {
   if (!posts) return null
   if (!Array.isArray(posts)) return null
-  
-  const linkToUrl = post.videoUrl ? post.videoUrl : `${post.path}${post.slug}` // if there is a video URL, link to that, else, /path/slug
 
   return (
     <Container>
       <ul className={styles.articleList}>
         {posts.map((post) => {
+          const linkToUrl = post.videoUrl ? post.videoUrl : `${post.path}${post.slug}` // if there is a video URL, link to that, else, /path/slug
           return (
             <li key={post.slug}>
               <Link to={linkToUrl} className={styles.link}>
