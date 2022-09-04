@@ -37,7 +37,8 @@ export default RootIndex
 export const pageQuery = graphql`
   query LiveIndexQuery {
     posts: allContentfulPost(
-      sort: { fields: [startTime], order: ASC }
+      limit: 21
+      sort: { fields: [startTime], order: DESC }
       filter: { index: { eq: "live" } }
     ) {
       nodes {

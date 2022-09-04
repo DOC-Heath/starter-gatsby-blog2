@@ -36,6 +36,7 @@ export default RootIndex
 export const pageQuery = graphql`
   query HomeQuery {
     posts: allContentfulPost(
+      limit: 21
       sort: { fields: [publishDate], order: ASC }
       filter: { index: { eq: "home" } }
     ) {
