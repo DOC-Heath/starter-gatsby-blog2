@@ -10,7 +10,7 @@ import * as styles from '../templates/blog-post.module.css'
 
 class RootIndex extends React.Component {
   render() {
-    const posts = get(this, 'props.data.pins.nodes').push(...get(this, 'props.data.posts.nodes'))
+    const posts = get(this, 'props.data.pins.nodes')
     const [billboard] = get(this, 'props.data.welcome.nodes')
     
     return (
