@@ -12,7 +12,7 @@ class RootIndex extends React.Component {
   render() {
     const posts = get(this, 'props.data.posts.nodes')
     const pins = get(this, 'props.data.pins.nodes')
-    constant pinsPosts = [...pins, ...posts]
+    const pinsPosts = [...pins, ...posts]
     const [billboard] = get(this, 'props.data.welcome.nodes')
     
     return (
