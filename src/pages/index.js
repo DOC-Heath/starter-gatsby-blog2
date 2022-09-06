@@ -10,7 +10,7 @@ import * as styles from '../templates/blog-post.module.css'
 
 class RootIndex extends React.Component {
   render() {
-    const posts = get(this, 'props.data.posts.nodes')
+    const posts = get(this, 'props.data.pins.nodes').push(...get(this, 'props.data.posts.nodes'))
     const [billboard] = get(this, 'props.data.welcome.nodes')
     
     return (
@@ -35,9 +35,35 @@ export default RootIndex
 
 export const pageQuery = graphql`
   query HomeQuery {
+    pins: allContentfulPost(
+      limit: 7
+      sort: { fields: [startTime], order: ASC }
+      filter: { pinToTopOf: { eq: "home" } }
+    ) {
+      nodes {
+        path
+        title
+        slug
+        videoUrl
+        startTime
+        publishDate(formatString: "MMMM Do, YYYY")
+        metadata { tags { name, id } }
+        heroImage {
+          gatsbyImageData(
+            layout: FULL_WIDTH
+            placeholder: BLURRED
+            width: 424
+            height: 212
+          )
+        }
+        description {
+          raw
+        }
+      }
+    }
     posts: allContentfulPost(
       limit: 21
-      sort: { fields: [startTime], order: ASC }
+      sort: { fields: [startTime], order: DESC }
       filter: { index: { eq: "home" } }
     ) {
       nodes {
