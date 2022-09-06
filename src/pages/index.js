@@ -37,7 +37,7 @@ export const pageQuery = graphql`
   query HomeQuery {
     posts: allContentfulPost(
       limit: 21
-      sort: { fields: [publishDate], order: ASC }
+      sort: { fields: [startTime], order: ASC }
       filter: { index: { eq: "home" } }
     ) {
       nodes {
