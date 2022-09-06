@@ -10,7 +10,9 @@ import * as styles from '../templates/blog-post.module.css'
 
 class RootIndex extends React.Component {
   render() {
-    const posts = get(this, 'props.data.pins.nodes')
+    const posts = get(this, 'props.data.posts.nodes')
+    const pins = get(this, 'props.data.pins.nodes')
+    constant pinsPosts = [...pins, ...posts]
     const [billboard] = get(this, 'props.data.welcome.nodes')
     
     return (
@@ -25,7 +27,7 @@ class RootIndex extends React.Component {
             {billboard.body?.raw && renderRichText(billboard.body)}
           </div>
         </div>
-        <ArticlePreview posts={posts} />
+        <ArticlePreview posts={pinsPosts} />
       </Layout>
     )
   }
