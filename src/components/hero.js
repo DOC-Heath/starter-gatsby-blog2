@@ -1,17 +1,23 @@
 import React, { Component } from 'react'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
+import { createClient } from "contentful"
 
 import * as styles from './hero.module.css'
 
 class Hero extends React.Component {
 	constructor(props) {
-	  super(props)
-	  this.state = {
+		super(props)
+		this.state = {
 		  image: this.props.image,
 		  title: this.props.title,
 		  content: this.props.content
-	  }
+		}		
+		this.client = createClient({
+			accessToken:
+			"MRXtkCKsX6m0pXGCTTWbAyyOXZJwY7GNa90ea_km7qs",
+			space: "5x0q4l6e6sfl"
+		})
 	}
 	render() {
 		return (
