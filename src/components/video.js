@@ -1,3 +1,4 @@
+// started and untested by Heath
 import React from "react"
 const Video = ({ videoSrcURL, videoTitle, videoStartTime }) => (
   <div className="video">
