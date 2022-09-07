@@ -19,6 +19,20 @@ class Hero extends React.Component {
 			space: "5x0q4l6e6sfl"
 		})
 	}
+	componentDidMount() {
+	  this.timerID = setInterval(
+		() => this.tick(),
+		7000
+	  );
+	}  
+	componentWillUnmount() {
+	  clearInterval(this.timerID);
+	} 
+	tick() {
+	  this.setState({
+		title: "Hello"
+	  });
+	}
 	render() {
 		return (
 		      <div className={styles.hero}>
