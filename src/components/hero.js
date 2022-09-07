@@ -18,20 +18,22 @@ class Hero extends React.Component {
 			"MRXtkCKsX6m0pXGCTTWbAyyOXZJwY7GNa90ea_km7qs",
 			space: "5x0q4l6e6sfl"
 		})
+		this.i = 0
 	}
 	componentDidMount() {
 	  this.timerID = setInterval(
 		() => this.tick(),
-		7000
+		3000
 	  );
 	}  
 	componentWillUnmount() {
 	  clearInterval(this.timerID);
 	} 
 	tick() {
-	  this.setState({
-		title: "Hello"
-	  });
+		this.setState({
+			title: "Hello"+i
+		})
+		i=i+1
 	}
 	render() {
 		return (
