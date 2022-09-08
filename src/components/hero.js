@@ -31,9 +31,9 @@ class Hero extends React.Component {
 	} 
 	tick() {
 		this.setState({
-			title: "Hello"+i
+			title: "Hello"+this.i
 		})
-		i=i+1
+		this.i=this.i+1
 	}
 	render() {
 		return (
