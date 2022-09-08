@@ -36,12 +36,12 @@ class Hero extends React.Component {
 	} 
 	tick() {
 		const t = this.ticker[iTick]
-		this.setState({
+/*		this.setState({
 			image: t.fields.heroImage,
 			title: t.fields.title,
 			content: t.fields.description
 		})
-		( ++this.iTick < this.ticker.length ) || this.iTick = 0 
+		( ++this.iTick < this.ticker.length ) || this.iTick = 0 */
 	}
 	render() {
 		return (
