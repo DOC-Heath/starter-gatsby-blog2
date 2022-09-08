@@ -40,7 +40,7 @@ class Hero extends React.Component {
 			title: t.fields.title,
 			content: t.fields.description
 		})
-		( ++this.iTick < this.ticker.length ) || { this.iTick = 0 }
+		( ++this.iTick < this.ticker.length ) || this.iTick = 0 
 	}
 	render() {
 		return (
