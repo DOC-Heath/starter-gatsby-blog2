@@ -17,10 +17,10 @@ class Hero extends React.Component {
 			accessToken: "MRXtkCKsX6m0pXGCTTWbAyyOXZJwY7GNa90ea_km7qs",
 			space: "5x0q4l6e6sfl"
 		})
-		this.iTick = 0
+//		this.iTick = 0
 	}
 	componentDidMount() {
-		client.getEntry(5Lst9GoxbCg66KGi2uVvW9).then(function (entry) {
+/*		client.getEntry(5Lst9GoxbCg66KGi2uVvW9).then(function (entry) {
 			console.log(entry)
 			this.ticker = entry.fields.ticks
 			console.log(this.ticker)
@@ -28,19 +28,19 @@ class Hero extends React.Component {
 				() => this.tick(),
 				3000
 			)
-		})
+		})*/
 	}  
 	componentWillUnmount() {
 	  clearInterval(this.timerID)
 	} 
 	tick() {
-		const t = this.ticker[iTick]
+/*		const t = this.ticker[iTick]
 		this.setState({
 			image: t.fields.heroImage,
 			title: t.fields.title,
 			content: t.fields.description
 		})
-		( iTick++ < this.ticker.length ) || { iTick = 0 }
+		( iTick++ < this.ticker.length ) || { iTick = 0 }*/
 	}
 	render() {
 		return (
