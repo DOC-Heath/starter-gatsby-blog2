@@ -34,6 +34,7 @@ class Hero extends React.Component {
 	} 
 	tick(ticks) {
 		const t = ticks[this.iTick++]
+		console.log(t)
 		this.setState({
 			image: t.fields.heroImage,
 			title: t.fields.title,
