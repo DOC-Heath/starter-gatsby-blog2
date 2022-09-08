@@ -20,7 +20,7 @@ class Hero extends React.Component {
 		this.iTick = 0
 	}
 	componentDidMount() {
-		client.getEntry('5Lst9GoxbCg66KGi2uVvW9').then(function (entry) {
+		this.client.getEntry('5Lst9GoxbCg66KGi2uVvW9').then(function (entry) {
 			console.log(entry)
 			this.ticker = entry.fields.ticks
 			console.log(this.ticker)
