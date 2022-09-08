@@ -23,7 +23,7 @@ class Hero extends React.Component {
 	componentDidMount() {
 		this.client.getEntry('5Lst9GoxbCg66KGi2uVvW9').then(function (entry) {
 			console.log(entry)
-			this.ticker = entry.fields.ticks
+			this.ticker.push(...entry.fields.ticks)
 			console.log(this.ticker)
 			this.timerID = setInterval(
 				() => this.tick(),
@@ -36,12 +36,12 @@ class Hero extends React.Component {
 	} 
 	tick() {
 		const t = this.ticker[iTick]
-/*		this.setState({
+		this.setState({
 			image: t.fields.heroImage,
 			title: t.fields.title,
 			content: t.fields.description
 		})
-		( ++this.iTick < this.ticker.length ) || this.iTick = 0 */
+		/*( ++this.iTick < this.ticker.length ) || this.iTick = 0 */
 	}
 	render() {
 		return (
