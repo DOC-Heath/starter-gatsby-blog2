@@ -34,13 +34,13 @@ class Hero extends React.Component {
 	  clearInterval(this.timerID)
 	} 
 	tick() {
-		const t = this.ticker[iTick]
+/*		const t = this.ticker[iTick]
 		this.setState({
 			image: t.fields.heroImage,
 			title: t.fields.title,
 			content: t.fields.description
 		})
-		( ++this.iTick < this.ticker.length ) || this.iTick = 0 
+		( ++this.iTick < this.ticker.length ) || this.iTick = 0 */
 	}
 	render() {
 		return (
