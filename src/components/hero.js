@@ -20,10 +20,11 @@ class Hero extends React.Component {
 		this.iTick = 0
 	}
 	componentDidMount() {
-		this.client.getEntry('5Lst9GoxbCg66KGi2uVvW9').then(function (entry) {
+		const me = this
+		me.client.getEntry('5Lst9GoxbCg66KGi2uVvW9').then(function (entry) {
 			console.log(entry)
-			this.timerID = setInterval(
-				() => this.tick(entry.fields.ticks),
+			me.timerID = setInterval(
+				() => me.tick(entry.fields.ticks),
 				3000
 			)
 		})
