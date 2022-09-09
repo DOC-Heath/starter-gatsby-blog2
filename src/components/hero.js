@@ -25,7 +25,7 @@ class Hero extends React.Component {
 			console.log(entry)
 			me.timerID = setInterval(
 				() => me.tick(entry.fields.ticks),
-				3000
+				5000
 			)
 		})
 	}  
@@ -35,10 +35,13 @@ class Hero extends React.Component {
 	tick(ticks) {
 		const t = ticks[this.iTick++]
 		console.log(t)
+		console.log(t.fields.heroImage)
+		console.log(t.fields.title)
+		console.log(t.fields.description)
 		this.setState({
-			image: t.fields.heroImage,
-			title: t.fields.title,
-			content: t.fields.description
+			"image": t.fields.heroImage,
+			"title": t.fields.title,
+			"content": t.fields.description
 		})
 		if ( this.iTick = ticks.length ) { this.iTick = 0 }
 	}
