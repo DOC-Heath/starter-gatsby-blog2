@@ -13,37 +13,29 @@ class Hero extends React.Component {
 		  title: this.props.title,
 		  content: this.props.content
 		}		
-		this.client = createClient({
+		const client = createClient({
 			accessToken: "MRXtkCKsX6m0pXGCTTWbAyyOXZJwY7GNa90ea_km7qs",
 			space: "5x0q4l6e6sfl"
 		})
-		this.iTick = 0
-	}
-	componentDidMount() {
-		const me = this
-		me.client.getEntry('5Lst9GoxbCg66KGi2uVvW9').then(function (entry) {
+		client.getEntry('5Lst9GoxbCg66KGi2uVvW9').then(function (entry) {
 			console.log(entry)
-			me.timerID = setInterval(
-				() => me.tick(entry.fields.ticks),
-				3000
-			)
+			setTimeout( () => tick(entry, 0), 3000 )
 		})
-	}  
-	componentWillUnmount() {
-	  clearInterval(this.timerID)
-	} 
-	tick(ticks) {
-		const t = ticks[this.iTick++]
-		console.log(t)
-		console.log(t.fields.heroImage)
-		console.log(t.fields.title)
-		console.log(t.fields.description)
-/*		this.setState({
-			"image": t.fields.heroImage,
-			"title": t.fields.title,
-			"content": t.fields.description
-		})*/
-		if ( this.iTick = ticks.length ) { this.iTick = 0 }
+	}
+	tick(ticks, i) {
+		console.log('tick')
+		const tic = ticks[i].fields
+		console.log(tic)
+		console.log(tic.heroImage)
+		console.log(tic.title)
+		console.log(tic.description)
+		this.setState({
+			image: tic.heroImage,
+			title: tic.title,
+			content: tic.description
+		})
+		if ( i+1 < ticks.length ) { setTimeout( () => tick(ticks, i+1), 3000 ) }
+		else { setTimeout( () => tick(ticks, 0), 3000 ) }
 	}
 	render() {
 		return (
