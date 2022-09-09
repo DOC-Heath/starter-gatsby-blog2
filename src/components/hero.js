@@ -8,7 +8,21 @@ import * as styles from './hero.module.css'
 class Hero extends React.Component {
 	constructor(props) {
 		super(props)
-		const tic = this.tick
+		const tick = (ticks, i) => {
+			console.log('tick')
+			const tic = ticks[i].fields
+			console.log(tic)
+			console.log(tic.heroImage)
+			console.log(tic.title)
+			console.log(tic.description)
+			this.setState({
+				image: tic.heroImage,
+				title: tic.title,
+				content: tic.description
+			})
+			if ( i+1 < ticks.length ) { setTimeout( () => tick(ticks, i+1), 3000 ) }
+			else { setTimeout( () => tick(ticks, 0), 3000 ) }
+		}
 		this.state = {
 		  image: this.props.image,
 		  title: this.props.title,
@@ -20,10 +34,10 @@ class Hero extends React.Component {
 		})
 		client.getEntry('5Lst9GoxbCg66KGi2uVvW9').then(function(entry) {
 			console.log(entry)
-			setTimeout( () => tic(entry.fields.ticks, 0), 3000 )
+			setTimeout( () => tick(entry.fields.ticks, 0), 3000 )
 		})
 	}
-	tick(ticks, i) {
+	tick = (ticks, i) => {
 		console.log('tick')
 		const tic = ticks[i].fields
 		console.log(tic)
