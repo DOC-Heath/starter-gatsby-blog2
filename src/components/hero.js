@@ -8,37 +8,24 @@ import * as styles from './hero.module.css'
 class Hero extends React.Component {
 	constructor(props) {
 		super(props)
-		const tick = (ticks, i) => {
-			console.log('tick')
-			const tic = ticks[i].fields
-			console.log(tic)
-			console.log(tic.heroImage)
-			console.log(tic.title)
-			console.log(tic.description)
-			this.setState({
-				image: tic.heroImage,
-				title: tic.title,
-				content: tic.description
-			})
-			if ( i+1 < ticks.length ) { setTimeout( () => tick(ticks, i+1), 3000 ) }
-			else { setTimeout( () => tick(ticks, 0), 3000 ) }
-		}
 		this.state = {
 		  image: this.props.image,
 		  title: this.props.title,
 		  content: this.props.content
 		}		
-		const client = createClient({
+		this.client = createClient({
 			accessToken: "MRXtkCKsX6m0pXGCTTWbAyyOXZJwY7GNa90ea_km7qs",
 			space: "5x0q4l6e6sfl"
 		})
+	}
+	componentDidMount() {
 		client.getEntry('5Lst9GoxbCg66KGi2uVvW9').then(function(entry) {
 			console.log(entry)
-			setTimeout( () => tick(entry.fields.ticks, 0), 3000 )
+			this.timerID = setTimeout( () => this.tick(entry.fields.ticks, 0), 3000 )
 		})
 	}
-	tick = (ticks, i) => {
-		console.log('tick')
+	tick(ticks, i) {
+		console.log('ticks')
 		const tic = ticks[i].fields
 		console.log(tic)
 		console.log(tic.heroImage)
