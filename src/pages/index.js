@@ -23,7 +23,6 @@ class RootIndex extends React.Component {
           title={billboard.title}
           content={billboard.description}
         />
-        <Clock />
         <div className={styles.article}>
           <div className={styles.body}>
             {billboard.body?.raw && renderRichText(billboard.body)}
