@@ -36,7 +36,7 @@ class Hero extends React.Component {
 	}
 	componentDidMount() {
 		const me = this  // this will change in getEntry callback
-		client.getEntry('5Lst9GoxbCg66KGi2uVvW9').then(function(entry) {
+		this.client.getEntry('5Lst9GoxbCg66KGi2uVvW9').then(function(entry) {
 			console.log(entry)
 			me.timerID = setTimeout( () => tick(entry.fields.ticks, 0, me.setState), 3000 )
 		})
