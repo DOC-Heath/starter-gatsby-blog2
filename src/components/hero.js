@@ -12,11 +12,11 @@ function tick(ticks, i, setState) {
 	console.log(tic.heroImage)
 	console.log(tic.title)
 	console.log(tic.description)
-	setState({
+/*	setState({
 		image: tic.heroImage,
 		title: tic.title,
 		content: tic.description
-	})
+	})*/
 	if ( i+1 < ticks.length ) { setTimeout( () => tick(ticks, i+1, setState), 3000 ) }
 	else { setTimeout( () => tick(ticks, 0, setState), 3000 ) }
 }
