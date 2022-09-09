@@ -19,10 +19,14 @@ class Hero extends React.Component {
 		})
 	}
 	componentDidMount() {
+		const me = this  // this will change in getEntry callback
 		this.client.getEntry('5Lst9GoxbCg66KGi2uVvW9').then(function(entry) {
 			console.log(entry)
-			this.timerID = setTimeout( () => this.tick(entry.fields.ticks, 0), 3000 )
+			me.timerID = setTimeout( () => me.tick(entry.fields.ticks, 0), 3000 )
 		})
+	} 
+	componentWillUnmount() {
+	  clearTimeout(this.timerID)
 	}
 	tick(ticks, i) {
 		console.log('ticks')
