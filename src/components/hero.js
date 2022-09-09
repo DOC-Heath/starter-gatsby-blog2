@@ -28,8 +28,8 @@ class Hero extends React.Component {
 	componentWillUnmount() {
 	  clearTimeout(this.timerID)
 	}
-	tick(ticks, i) {
-		console.log('ticks')
+	tick = (ticks, i) => {
+		console.log('tick')
 		const tic = ticks[i].fields
 		console.log(tic)
 		console.log(tic.heroImage)
