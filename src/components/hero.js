@@ -39,7 +39,7 @@ class Hero extends React.Component {
 		console.log(tic.title)
 		console.log(tic.description)
 		this.setState({
-			title: 'hello'
+			title: tic.title
 		})
 		if ( ++this.i >= this.ticks.length ) { this.i = 0 }
 		this.timerID = setTimeout( () => this.tick(), 3000 )
