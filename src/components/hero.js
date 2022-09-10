@@ -5,22 +5,6 @@ import { createClient } from "contentful"
 
 import * as styles from './hero.module.css'
 
-function tick(ticks, i, setState) {
-	console.log('tick')
-	const tic = ticks[i].fields
-	console.log(tic)
-	console.log(tic.heroImage)
-	console.log(tic.title)
-	console.log(tic.description)
-/*	setState({
-		image: tic.heroImage,
-		title: tic.title,
-		content: tic.description
-	})*/
-	if ( i+1 < ticks.length ) { setTimeout( () => tick(ticks, i+1, setState), 3000 ) }
-	else { setTimeout( () => tick(ticks, 0, setState), 3000 ) }
-}
-
 class Hero extends React.Component {
 	constructor(props) {
 		super(props)
@@ -33,17 +17,36 @@ class Hero extends React.Component {
 			accessToken: "MRXtkCKsX6m0pXGCTTWbAyyOXZJwY7GNa90ea_km7qs",
 			space: "5x0q4l6e6sfl"
 		})
+		this.i = 0
 	}
 	componentDidMount() {
-		const me = this  // this will change in getEntry callback
+		const me = this
 		this.client.getEntry('5Lst9GoxbCg66KGi2uVvW9').then(function(entry) {
 			console.log(entry)
-			me.timerID = setTimeout( () => tick(entry.fields.ticks, 0, me.setState), 3000 )
+			me.ticks = entry.fields.ticks
+			me.timerID = setTimeout( () => me.tick(), 3000 )
 		})
 	} 
 	componentWillUnmount() {
 	  clearTimeout(this.timerID)
 	}
+	
+	tick() {
+		console.log('tick')
+		const tic = this.ticks[this.i].fields
+		console.log(tic)
+		console.log(tic.heroImage)
+		console.log(tic.title)
+		console.log(tic.description)
+		this.setState({
+			image: tic.heroImage,
+			title: tic.title,
+			content: tic.description
+		})
+		if ( ++this.i >= this.ticks.length ) { this.i = 0 }
+		this.timerID = setTimeout( () => this.tick(), 3000 )
+	}
+	
 	render() {
 		return (
 		      <div className={styles.hero}>
