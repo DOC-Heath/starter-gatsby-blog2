@@ -39,9 +39,7 @@ class Hero extends React.Component {
 		console.log(tic.title)
 		console.log(tic.description)
 		this.setState({
-			image: tic.heroImage,
-			title: tic.title,
-			content: tic.description
+			title: 'hello'
 		})
 		if ( ++this.i >= this.ticks.length ) { this.i = 0 }
 		this.timerID = setTimeout( () => this.tick(), 3000 )
