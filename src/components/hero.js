@@ -39,7 +39,6 @@ class Hero extends React.Component {
 		console.log(tic.title)
 		console.log(tic.description)
 		this.setState({
-			title: tic.title,
 			content: tic.description
 		})
 		if ( ++this.i >= this.ticks.length ) { this.i = 0 }
