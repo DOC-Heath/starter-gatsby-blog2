@@ -13,7 +13,7 @@ class RootIndex extends React.Component {
 		super(props)
 		this.i = 0
 		console.log(this.i)
-		this.heros = get(this, 'props.data.heros.nodes.ticks')
+		this.heros = get(this, 'props.data.heros.nodes.ticks.items')
 		console.log(this.heros)
 		const [hero0] = this.heros
 		this.state = {
@@ -103,7 +103,7 @@ export const pageQuery = graphql`
     }
     heros: allContentfulTicker( filter: { slug: { eq: "welcome" } } ) {
       nodes {
-	ticks { 
+	ticks { items { 
 		title
 		description { 
 		  raw 
@@ -118,7 +118,7 @@ export const pageQuery = graphql`
 		    width: 1180
 		  )
 		}
-	}
+	} }
       }
     }
     
