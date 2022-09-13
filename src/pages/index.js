@@ -101,7 +101,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    heros: allContentfulTicker( filter: { slug: { eq: "welcome" } } ) {
+    heros: contentfulTicker( filter: { slug: { eq: "home" } } ) {
       nodes {
 	ticks {  
 		title
