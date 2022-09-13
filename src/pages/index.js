@@ -11,10 +11,14 @@ import * as styles from '../templates/blog-post.module.css'
 class RootIndex extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = {
-		  hero: get(this, 'props.data.heros.nodes')[0]
-		}		
 		this.i = 0
+		console.log(this.i)
+		this.heros = get(this, 'props.data.heros.nodes.ticksCollection.items')
+		console.log(heros)
+		this.state = {
+		  hero: heros[i]
+		}
+		console.log(this.state.hero)
 	}
   render() {
     const posts = get(this, 'props.data.posts.nodes')
@@ -96,23 +100,28 @@ export const pageQuery = graphql`
         }
       }
     }
-    heros: allContentfulPost( filter: { slug: { eq: "welcome" } } ) {
+    heros: allContentfulTicker( filter: { slug: { eq: "welcome" } } ) {
       nodes {
-        title
-        description { 
-          raw 
-        }
-        body { 
-          raw 
-        }
-        heroImage {
-          gatsbyImageData(
-            layout: CONSTRAINED
-            placeholder: BLURRED
-            width: 1180
-          )
-        }
+	ticksCollection { 
+		items {
+			title
+			description { 
+			  raw 
+			}
+			body { 
+			  raw 
+			}
+			heroImage {
+			  gatsbyImageData(
+			    layout: CONSTRAINED
+			    placeholder: BLURRED
+			    width: 1180
+			  )
+			}
+		} 
+	}
       }
     }
+    
   }
 `
