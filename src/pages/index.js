@@ -13,7 +13,7 @@ class RootIndex extends React.Component {
 		super(props)
 		this.i = 0
 		console.log(this.i)
-		this.heros = get(this, 'props.data.heros.nodes.ticksCollection.items')
+		this.heros = get(this, 'props.data.heros.nodes.ticks')
 		console.log(heros)
 		this.state = {
 		  hero: heros[i]
@@ -25,20 +25,20 @@ class RootIndex extends React.Component {
     const pins = get(this, 'props.data.pins.nodes')
     const pinsPosts = [...pins, ...posts]
     const h = this.state.hero
-    
+
     return (
       <Layout location={this.props.location}>
-        <Hero
-          image={h.heroImage.gatsbyImageData}
-          title={h.title}
-          content={h.description}
-        />
-        <div className={styles.article}>
-          <div className={styles.body}>
-            {h.body?.raw && renderRichText(h.body)}
-          </div>
-        </div>
-        <ArticlePreview posts={pinsPosts} />
+	<Hero
+	  image={h.heroImage.gatsbyImageData}
+	  title={h.title}
+	  content={h.description}
+	/>
+	<div className={styles.article}>
+	  <div className={styles.body}>
+	    {h.body?.raw && renderRichText(h.body)}
+	  </div>
+	</div>
+	<ArticlePreview posts={pinsPosts} />
       </Layout>
     )
   }
@@ -102,23 +102,21 @@ export const pageQuery = graphql`
     }
     heros: allContentfulTicker( filter: { slug: { eq: "welcome" } } ) {
       nodes {
-	ticksCollection { 
-		items {
-			title
-			description { 
-			  raw 
-			}
-			body { 
-			  raw 
-			}
-			heroImage {
-			  gatsbyImageData(
-			    layout: CONSTRAINED
-			    placeholder: BLURRED
-			    width: 1180
-			  )
-			}
-		} 
+	ticks { 
+		title
+		description { 
+		  raw 
+		}
+		body { 
+		  raw 
+		}
+		heroImage {
+		  gatsbyImageData(
+		    layout: CONSTRAINED
+		    placeholder: BLURRED
+		    width: 1180
+		  )
+		}
 	}
       }
     }
