@@ -37,6 +37,7 @@ class RootIndex extends React.Component {
     const pins = get(this, 'props.data.pins.nodes')
     const pinsPosts = [...pins, ...posts]
     const h = this.state.hero
+    const welcomeBody = this.heros[0].body
 
     return (
       <Layout location={this.props.location}>
@@ -47,7 +48,7 @@ class RootIndex extends React.Component {
 	/>
 	<div className={styles.article}>
 	  <div className={styles.body}>
-	    {h.body?.raw && renderRichText(h.body)}
+	    {welcomeBody?.raw && renderRichText(welcomeBody)}
 	  </div>
 	</div>
 	<ArticlePreview posts={pinsPosts} />
