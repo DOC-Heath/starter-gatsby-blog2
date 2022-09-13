@@ -9,22 +9,29 @@ import ArticlePreview from '../components/article-preview'
 import * as styles from '../templates/blog-post.module.css'
 
 class RootIndex extends React.Component {
+	constructor(props) {
+		super(props)
+		this.state = {
+		  hero: get(this, 'props.data.heros.nodes')[0]
+		}		
+		this.i = 0
+	}
   render() {
     const posts = get(this, 'props.data.posts.nodes')
     const pins = get(this, 'props.data.pins.nodes')
     const pinsPosts = [...pins, ...posts]
-    const [welcome] = get(this, 'props.data.welcome.nodes')
+    const h = this.state.hero
     
     return (
       <Layout location={this.props.location}>
         <Hero
-          image={welcome.heroImage.gatsbyImageData}
-          title={welcome.title}
-          content={welcome.description}
+          image={h.heroImage.gatsbyImageData}
+          title={h.title}
+          content={h.description}
         />
         <div className={styles.article}>
           <div className={styles.body}>
-            {welcome.body?.raw && renderRichText(welcome.body)}
+            {h.body?.raw && renderRichText(h.body)}
           </div>
         </div>
         <ArticlePreview posts={pinsPosts} />
@@ -89,7 +96,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    welcome: allContentfulPost( filter: { slug: { eq: "welcome" } } ) {
+    heros: allContentfulPost( filter: { slug: { eq: "welcome" } } ) {
       nodes {
         title
         description { 
