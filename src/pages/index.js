@@ -16,7 +16,7 @@ class RootIndex extends React.Component {
 		this.heros = get(this, 'props.data.heros.nodes.ticks')
 		console.log(this.heros)
 		this.state = {
-		  hero: this.heros[i]
+		  hero: this.heros[this.i]
 		}
 		console.log(this.state.hero)
 	}
