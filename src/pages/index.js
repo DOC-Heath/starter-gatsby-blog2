@@ -13,18 +13,18 @@ class RootIndex extends React.Component {
     const posts = get(this, 'props.data.posts.nodes')
     const pins = get(this, 'props.data.pins.nodes')
     const pinsPosts = [...pins, ...posts]
-    const [billboard] = get(this, 'props.data.welcome.nodes')
+    const [welcome] = get(this, 'props.data.welcome.nodes')
     
     return (
       <Layout location={this.props.location}>
         <Hero
-          image={billboard.heroImage.gatsbyImageData}
-          title={billboard.title}
-          content={billboard.description}
+          image={welcome.heroImage.gatsbyImageData}
+          title={welcome.title}
+          content={welcome.description}
         />
         <div className={styles.article}>
           <div className={styles.body}>
-            {billboard.body?.raw && renderRichText(billboard.body)}
+            {welcome.body?.raw && renderRichText(welcome.body)}
           </div>
         </div>
         <ArticlePreview posts={pinsPosts} />
