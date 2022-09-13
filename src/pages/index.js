@@ -12,14 +12,26 @@ class RootIndex extends React.Component {
 	constructor(props) {
 		super(props)
 		this.i = 0
-		console.log(this.i)
 		this.heros = get(this, 'props.data.heros.ticks')
-		console.log(this.heros)
 		this.state = {
 		  hero: this.heros[this.i]
 		}
-		console.log(this.state.hero)
 	}
+	componentDidMount() {
+		this.timerID = setTimeout( () => this.tick(), 3000 )
+	}
+	componentWillUnmount() {
+		clearTimeout(this.timerID)
+	}
+	
+	tick() {
+		this.setState({
+			hero: this.heros[this.i]
+		})
+		if ( ++this.i >= this.heros.length ) { this.i = 0 }
+		this.timerID = setTimeout( () => this.tick(), 3000 )
+	}
+	
   render() {
     const posts = get(this, 'props.data.posts.nodes')
     const pins = get(this, 'props.data.pins.nodes')
