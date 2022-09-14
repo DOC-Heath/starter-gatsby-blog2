@@ -11,6 +11,13 @@ import * as styles from '../templates/blog-post.module.css'
 class RootIndex extends React.Component {
 	constructor(props) {
 		super(props)
+		this.t0 = props.data.heros.firstTickTime*1000 || 9000
+		this.t  = props.data.heros.tickTime*1000 || 7000
+		if (props.data.heros.reEntry === undefined) { 
+			this.i0 = 1 
+		} else { 
+			this.i0 = props.data.heros.reEntry  
+		}
 		this.i = 0
 		this.heros = get(this, 'props.data.heros.ticks')
 		this.state = {
@@ -18,7 +25,7 @@ class RootIndex extends React.Component {
 		}
 	}
 	componentDidMount() {
-		this.timerID = setTimeout( () => this.tick(), 3000 )
+		this.timerID = setTimeout( () => this.tick(), this.t0 )
 	}
 	componentWillUnmount() {
 		clearTimeout(this.timerID)
@@ -28,8 +35,8 @@ class RootIndex extends React.Component {
 		this.setState({
 			hero: this.heros[this.i]
 		})
-		if ( ++this.i >= this.heros.length ) { this.i = 0 }
-		this.timerID = setTimeout( () => this.tick(), 3000 )
+		if ( ++this.i >= this.heros.length ) { this.i = this.i0 }
+		this.timerID = setTimeout( () => this.tick(), this.t )
 	}
 	
   render() {
@@ -114,6 +121,9 @@ export const pageQuery = graphql`
       }
     }
     heros: contentfulTicker( slug: { eq: "home" } ) {
+    	firstTickTime
+	tickTime
+	reEntry
 	ticks {  
 		title
 		description { 
